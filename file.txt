@@ -1,0 +1,36 @@
+backend/
+├── controllers/
+│   ├── authController.js
+│   ├── productController.js
+│   ├── orderController.js
+│   └── adminController.js
+├── models/
+│   ├── User.js
+│   ├── Product.js
+│   ├── Order.js
+│   ├── Category.js
+│   └── Transaction.js
+├── routes/
+│   ├── authRoutes.js
+│   ├── productRoutes.js
+│   ├── orderRoutes.js
+│   └── adminRoutes.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   ├── errorMiddleware.js
+│   └── roleMiddleware.js
+├── services/
+│   ├── emailService.js
+│   ├── paymentService.js
+│   └── notificationService.js
+├── config/
+│   ├── db.js
+│   ├── env.js
+│   └── jwt.js
+├── utils/
+│   ├── logger.js
+│   ├── helpers.js
+│   └── validators.js
+├── app.js
+├── server.js
+└── package.json
