@@ -1,13 +1,16 @@
 const User = require('../models/User')
 const jwt =require('jsonwebtoken')
-
+const createToken =(_id)=>{
+    return jwt.sign({_id}, process.env.JWT_SECRET,{ expiresIn: '3d'})
+    
+  }
 exports.register = async (req,res)=>{
 
 const {name , email , password}=req.body ;
 try {
-    const user = new user ({name , email , password});
-    await user.save();
-    res.status(201).json({message : 'User registred successfully'});
+    const user = User.signup(name,email,password)
+    const token = createToken(user._id)
+    res.status(200).json({email,token});
 
 } catch (error) {
     res.status(400).json({error : error.message});
@@ -23,10 +26,10 @@ exports.login = async (req,res)=>{
         if (!user) throw new Error ('Invalid User');
 
        
-        const token = jwt.sign({ id:user._id,   role:user.role},process.env.JWT_SECRET , {expiresIn : '1h'} )
+        
     
     
-        res.json({token});
+        res.json({message:"login user"});
 
     
     
